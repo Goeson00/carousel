@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1c1b18;
+    display: flex;
+    height: 100vh;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+.carousel-wrapper {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: auto;
+    max-width: 800px;
+    overflow: hidden; 
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    transition: transform .4s ease;
+}
+
+.slides li {
+    flex: 1 100%;
+}
+
+.slides-btn-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+}
+
+.btn {
+    background-color: rgba(15, 15, 15, .6);
+    color: #ff695b;
+    font-size: 20px;
+    height: 60px;
+    transition: background-color .4s ease;
+    width: 60px;
+}
+
+.fa-angle-left,
+.fa-angle-right {
+    transition: transform .4s ease;
+}
+
+.btn:hover {
+    background-color: rgba(15, 15, 15, 1);
+}
+
+.btn:hover .fa-angle-left {
+    transform: translateX(-10px);
+}
+
+.btn:hover .fa-angle-right {
+    transform: translateX(10px);
+}
+
+.slides-indicators {
+    align-items: center;
+    align-self: center;
+    background-color: rgba(15, 15, 15, .6);
+    bottom: 30px;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 30px;
+    justify-content: space-around;
+    position: absolute;
+    width: 260px;
+}
+
+.slides-indicators li {
+    line-height: 0;
+}
+
+.slides-indicators button {
+    background: none;
+    border: 1px solid #ff695b;
+    height: 8px;
+    overflow: hidden;
+    position: relative;
+    width: 30px;
+}
+
+.slides-indicators button::after {
+    background-color: #ff695b;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: transform .3s ease;
+    transform: translateX(-100%);
+}
+
+.slides-indicators button:hover::after,
+.indicator-is-next button::after,
+.indicator-is-prev button::after {
+    transform: translateX(0);
+}
+
+.indicator-is-switched-next button::after {
+    transform: translateX(100%);
+}
+
+.indicator-is-switched-prev button::after {
+    transform: translateX(-100%);
+}
